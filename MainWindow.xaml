@@ -1,0 +1,94 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="DragAndDropApp.DragAndDropControls"
+        Title="Drag and Drop Window"
+        Width="782" Height="376">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="59*"/>
+            <RowDefinition Height="287*"/>
+        </Grid.RowDefinitions>
+        <Expander ExpandDirection="Left" IsExpanded="True" Grid.RowSpan="2">
+            <StackPanel Name="MrPanel" />
+        </Expander>
+
+        <InkCanvas x:Name="BigCanvas" Grid.RowSpan="2">
+            <Image Name="picture"/>
+            <Grid Background="#FFE5E5E5"/>
+        </InkCanvas>
+
+        <Canvas Margin="20,20,0,1" HorizontalAlignment="Left" Background="#FFEBEBEB" x:Name="DesigningCanvas" Width="0">
+            <!--<TextBox Text="It's a TextBox control" Canvas.Left="0" Canvas.Top="30" Width="177" Background="{x:Null}" />-->
+            <Button Content="Zapisz" Canvas.Left="0" Canvas.Top="0" Width="60" Click="Save_Click"/>
+            <Button Content="Otwórz" Canvas.Left="70" Canvas.Top="0" Width="60" Click="Open_Click"/>
+            <Button Content="Wyczyść" Canvas.Left="140" Canvas.Top="0" Width="60" Click="Clean_Click"/>
+            <Button Content="Punkty" Canvas.Left="210" Canvas.Top="0" Width="60" Click="Point_Click"/>
+            <Button Content="Zaznacz" Canvas.Left="280" Canvas.Top="0" Width="60" Click="Select_Click"/>
+            <Button Content="Wygładź" Canvas.Left="350" Canvas.Top="0" Width="60" Click="Smooth_Click"/>
+            <Button Content="Kopiuj" Canvas.Left="420" Canvas.Top="0" Width="60" Click="Copy_Click"/>
+            <Button Content="Wklej" Canvas.Left="490" Canvas.Top="0" Width="60" Click="Paste_Click"/>
+            <Button Content="Drukuj" Canvas.Left="560" Canvas.Top="0" Width="60" Click="Print_Click"/>
+            <Label Name="X_position" Content="Pozycja wybranego przycisku (X:Y) " Canvas.Left="0" Canvas.Top="300" Width="140" FontSize="8" Opacity="1" Foreground="#FFAA0001" />
+            <!--<RadioButton Canvas.Left="0" Canvas.Top="60" Height="30" x:Name="radioButton1">
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="It's a CheckBox control"/>
+                    <CheckBox Margin="7"/>
+                </StackPanel>
+            </RadioButton>-->
+            <!--<CheckBox Canvas.Left="0" Canvas.Top="90" Content="To jest jakas kontrolka" Height="16" x:Name="checkBox1" />-->
+            <ListBox Canvas.Left="0" Canvas.Top="150" Height="70" Width="120"
+				SelectionChanged="cboColor_SelectionChanged" x:Name="cboColor">
+                <ListBoxItem IsEnabled="False" Content="Kolory pendzla" />
+                <ListBoxItem Content="Czarny" Foreground="Black" />
+                <ListBoxItem Content="Niebieski" Foreground="#FF001B64" />
+                <ListBoxItem Content="Zielony" Foreground="#FF027817" />
+                <ListBoxItem Content="Czerwony" Foreground="#FFC11200" />
+                <ListBoxItem Content="Żółty" Foreground="#FFA1C500" />
+            </ListBox>
+
+            <ListBox Canvas.Left="0" Canvas.Top="230" Height="70" Width="120" 
+                     SelectionChanged="lbHeight_SelectionChanged" x:Name="lbHeight">
+                <ListBoxItem IsEnabled="False" Content="Rozmiary pendzla"/>
+                <ListBoxItem Content="(1)x" />
+                <ListBoxItem Content="2x" />
+                <ListBoxItem Content="3x" />
+                <ListBoxItem Content="4x" />
+            </ListBox>
+
+            <ListBox Canvas.Left="0" Canvas.Top="30" Height="110" Width="120" 
+                    SelectionChanged="Tool_SelectionChanged" x:Name="lbTool">
+                <ListBoxItem IsEnabled="False" Content="Wszystkie opcje" Background="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                <ListBoxItem IsEnabled="False" Content="Plik" Background="{DynamicResource {x:Static SystemColors.GradientInactiveCaptionBrushKey}}"/>
+                <ListBoxItem Content="Zapisz" />
+                <ListBoxItem Content="Otwórz" />
+                <ListBoxItem Content="Kopiuj" />
+                <ListBoxItem Content="Wklej" />
+                <ListBoxItem Content="Drukuj" />
+                <ListBoxItem IsEnabled="False" Content="Okno" Background="{DynamicResource {x:Static SystemColors.GradientInactiveCaptionBrushKey}}"/>
+                <ListBoxItem Content="Wyczysc" />
+                <ListBoxItem IsEnabled="False" Content="Obiekt" Background="{DynamicResource {x:Static SystemColors.GradientInactiveCaptionBrushKey}}"/>
+                <ListBoxItem Content="Punkty" />
+                <ListBoxItem Content="Zaznacz" />
+                <ListBoxItem Content="Wygładź" />
+            </ListBox>
+            <ListBox Canvas.Left="130" Canvas.Top="30" Height="70" Width="120" 
+                    SelectionChanged="Shapes_SelectionChanged" x:Name="lbShapes">
+                <ListBoxItem IsEnabled="False" Content="Kształty i rysowanie"/>
+                <ListBoxItem Content="Pędzel" />
+                <ListBoxItem Content="Koło" />
+                <ListBoxItem Content="Kwadrat" />
+            </ListBox>
+
+            <ListBox Canvas.Left="130" Canvas.Top="110" Height="70" Width="120"
+                    SelectionChanged="lbErase_SelectionChanged" x:Name="lbErase">
+                <ListBoxItem IsEnabled="False" Content="Rozmiary gumki"/>
+                <ListBoxItem Content="(1)x" />
+                <ListBoxItem Content="2x" />
+                <ListBoxItem Content="3x" />
+                <ListBoxItem Content="4x" />
+            </ListBox>
+        </Canvas>
+    </Grid>
+</Window>

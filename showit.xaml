@@ -1,0 +1,9 @@
+﻿<UserControl x:Class="DragAndDropApp.showit"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" >
+
+    <StackPanel Orientation="Vertical">
+        <Button Content="TesT" Canvas.Left="280" Canvas.Top="0" Width="60" Name="Click"/>
+    </StackPanel>
+</UserControl>
